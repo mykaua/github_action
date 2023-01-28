@@ -15,7 +15,7 @@ jobs:
           default_bump: false
 
       - name: Create a GitHub release
-        if: "!contains(github.event.head_commit.message, 'No tag found in ref or input')"
+        if: "!contains(steps.tag_version.outputs.new_tag, 'No tag found in ref or input')"
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
