@@ -23,7 +23,7 @@ jobs:
     name: Terraform
     defaults:
       run:
-        working-directory: Backend/dev
+        working-directory: ./Backend/dev
     permissions:
       pull-requests: write
     steps:
