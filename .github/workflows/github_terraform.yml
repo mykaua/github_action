@@ -36,7 +36,7 @@ jobs:
 
     - name: Terraform Validate
       id: validate
-      run: terraform run: terraform validate -no-color
+      run: terraform validate -no-color
       working-directory: ./Backned/dev # Use your environment folder
 
     - name: Terraform Init
