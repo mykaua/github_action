@@ -21,10 +21,14 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     name: Terraform
-    environment: staging 
+    defaults:
+      run:
+        working-directory: Backend/dev
+    permissions:
+      pull-requests: write
     steps:
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
+    - - uses: actions/checkout@v3
+    - uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.1.9
         terraform_wrapper: false
@@ -32,27 +36,22 @@ jobs:
     - name: Terraform fmt
       id: fmt
       run: terraform fmt -check
-      working-directory: Backend/dev
 
     - name: Terraform Validate
       id: validate
       run: terraform validate -no-color
-      working-directory: Backend/dev # Use your environment folder
 
     - name: Terraform Init
       id: init
       run: terraform init
-      working-directory: Backend/dev # Use your environment folder
     
     - name: Terraform Plan
       id: plan
       run: terraform plan -input=false -no-color -out tf.plan
-      working-directory: Backend/dev
 
     - name: Terraform Show
       id: show
       run: terraform show -no-color tf.plan 2>&1 > /tmp/plan.txt
-      working-directory: Backend/dev # Use your environment folder
 
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'
