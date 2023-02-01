@@ -17,6 +17,7 @@ jobs:
 
       - name: Output of step
         run: echo " tag is ${{ steps.tag_version.outputs.new_tag }}"
+        run: pwd
 
 
       - name: Create a GitHub release
