@@ -47,14 +47,7 @@ jobs:
 
     - name: Terraform Plan
       id: plan
-      run: terraform plan -input=false -no-color -out tf.plan
-
-    - name: Terraform Show
-      id: show
-      run: terraform show -no-color tf.plan 2>&1 > /tmp/plan.txt
-
-    - name: Output
-      run: echo " validate: ${{ steps.validate.outputs.stdout }} , plan: ${{ steps.plan.outcome }}"
+      run: terraform plan
 
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'
