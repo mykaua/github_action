@@ -10,9 +10,5 @@ resource "tls_private_key" "rsa-4096-example" {
   rsa_bits  = 4096
 }
 
-# ED25519 key
-resource "tls_private_key" "ed25519-example" {
-  algorithm = "ED25519"
-}
 
 
