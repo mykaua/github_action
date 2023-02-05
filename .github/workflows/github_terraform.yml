@@ -49,6 +49,12 @@ jobs:
       id: plan
       run: terraform plan -no-color
 
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      id: apply
+#      run: terraform -auto-approve -no-color
+      run: terraform plan -no-color
+
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'
       env:
@@ -107,3 +113,4 @@ jobs:
               body: output
             })
           }
+
