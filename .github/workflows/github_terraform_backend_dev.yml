@@ -1,12 +1,11 @@
-# .github/workflows/staging.yaml
-name: 'Terraform - Dev'
+name: 'Terraform - Backed Dev'
 
 on:
   push:
     branches:
     - main
     paths: 
-    - Backend/dev/*
+    - Backend/dev/**
   pull_request:
     branches:
     - main
