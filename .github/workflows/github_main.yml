@@ -24,9 +24,9 @@ jobs:
               - 'Backend/prod/**'
             frontend_dev:
               - 'Frontend/dev/**'
-            frontend_dev:
-              - 'Frontend/qc/**'
             frontend_qc:
+              - 'Frontend/qc/**'
+            frontend_prod:
               - 'Frontend/prod/**'
 
 
