@@ -16,9 +16,9 @@ on:
 jobs: 
   terraform-plan-apply:
     runs-on: ubuntu-latest
-  permissions:
-    pull-requests: write
-  steps:
+    permissions:
+      pull-requests: write
+    steps:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v2
 #      with:
