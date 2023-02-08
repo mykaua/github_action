@@ -22,16 +22,19 @@ runs:
 
     - name: Terraform Init
       id: init
+      working-directory: ${{ inputs.terraform_directory  }}
       run: terraform init
       shell: bash
  
     - name: Terraform Validate
       id: validate
+      working-directory: ${{ inputs.terraform_directory  }}
       run: terraform validate -no-color
       shell: bash
 
     - name: Terraform Plan
       id: plan
+      working-directory: ${{ inputs.terraform_directory  }}
       run: terraform plan -no-color
       shell: bash
 
