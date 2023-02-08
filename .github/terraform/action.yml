@@ -1,9 +1,9 @@
-name: GitHub Actions Demo
-  inputs:
-    hello:
-      description: 'Log level'
-      required: true
-      default: 'warning'
+name: 'GitHub Actions Demo'
+inputs:
+  hello:
+    description: 'Log level'
+    required: true
+    default: test
 
 jobs:
   Explore-GitHub-Actions:
