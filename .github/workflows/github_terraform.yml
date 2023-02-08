@@ -114,7 +114,7 @@ jobs:
 
   release:
     needs: terraform-plan-apply
-      #    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     uses: ./.github/workflows/github_tag.yml
     with:
       environment: ${{ inputs.prefix_version }}
