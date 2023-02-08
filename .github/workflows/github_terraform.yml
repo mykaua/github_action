@@ -16,7 +16,6 @@ jobs:
              path2:
               - 'Path2/**'
       - name: hello
-        uses: actions/checkout@v3
         uses: ./.github/workflows/github_example.yml
         with:
           hello: "test"
