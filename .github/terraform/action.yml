@@ -3,7 +3,11 @@ inputs:
   hello:
     description: 'Log level'
     required: true
-    default: test
+    default: "test"
+  world:
+    description: 'test'
+    required: false
+    default: "test 2"
 
 jobs:
   Explore-GitHub-Actions:
