@@ -1,7 +1,6 @@
 name: Bump version
 
-on:
-  workflow_run:
+on: [workflow_call]
 
 jobs:
   build:
