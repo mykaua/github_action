@@ -113,3 +113,9 @@ jobs:
             })
           }
 
+
+  release:
+    needs: terraform-plan-apply
+    uses: ./.github/workflows/github_tag.yml
+    with:
+      environment: ${{ inputs.terraform_directory  }}

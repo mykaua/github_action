@@ -16,17 +16,28 @@ jobs:
         id: filter
         with:
           filters: |
-             path1:
-              - '.github/workflows/**'
-             path2:
-              - 'Path2/**'
+            backend_dev:
+              - 'Backend/dev/**'
+            backend_qc:
+              - 'Backend/qc/**'
+            backend_prod:
+              - 'Backend/prod/**'
+            frontend_dev:
+              - 'Frontend/dev/**'
+            frontend_dev:
+              - 'Frontend/qc/**'
+            frontend_qc:
+              - 'Frontend/prod/**'
+
+
+
   terraform:
     needs: path-files
     uses: ./.github/workflows/github_terraform.yml
     with:
       terraform_directory: "./Backend/dev"
 
-  version:
-    needs: [path-files, terraform]
-    uses: ./.github/workflows/github_tag.yml
+#  version:
+#    needs: [path-files, terraform]
+#    uses: ./.github/workflows/github_tag.yml
 
