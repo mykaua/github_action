@@ -15,12 +15,10 @@ jobs:
               - '.github/workflows/**'
              path2:
               - 'Path2/**'
-
-      - name: Terraform 
-        if: steps.filter.outputs.path1 == 'true'
-        uses: ./.github/terraform
-        with:
-          hello: "world"
+   call-workflow:
+     uses: .github/workflows/github_example.yml@actions
+     with:
+       hello: "test"
           #
 #      - name: dified files
 #        id: check_files
