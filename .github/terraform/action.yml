@@ -4,10 +4,39 @@ inputs:
   hello: 
     description: 'where to execute terraform'
     required: true
+  terraform_directory:
+    description: 'Directory that holds Terraform code'
+    required: true
 
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v3
+    - uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform fmt
+      id: fmt
+      working-directory: ${{ inputs.terraform_directory  }}
+      run: terraform fmt -check
+      shell: bash
+
+    - name: Terraform Init
+      id: init
+      run: terraform init
+      shell: bash
+ 
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+      shell: bash
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      shell: bash
+
     - name: Setup Terraform
       run: echo "Hello world ${{ inputs.hello }}"
       shell: bash
+
+

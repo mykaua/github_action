@@ -12,3 +12,4 @@ jobs:
         uses: ./.github/terraform
         with:
           hello: "world mykola"
+          terraform_directory: "./Backend/dev"
