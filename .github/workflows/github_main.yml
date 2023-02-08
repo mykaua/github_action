@@ -1,4 +1,4 @@
-github_main.ymlname: 'Terraform - Backed Dev'
+name: 'Terraform - Backed Dev'
 on:
   push:
     branches:
