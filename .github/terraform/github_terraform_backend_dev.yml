@@ -1,4 +1,4 @@
-name: 'Terraform - Backed Dev'
+caname: 'Terraform - Backed Dev'
 
 on:
   push:
