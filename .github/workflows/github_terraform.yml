@@ -16,7 +16,7 @@ jobs:
              path2:
               - 'Path2/**'
       - name: hello
-        uses: mykaua/github_action/.github/workflows/github_example.yml@actions
+        uses: ./.github/workflows/github_example.yml
         with:
           hello: "test"
           #
