@@ -13,3 +13,4 @@ jobs:
         with:
           hello: "world mykola"
           terraform_directory: "./Backend/dev"
+          github_token: ${{ secrets.GH_TOKEN }}

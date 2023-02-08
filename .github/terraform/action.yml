@@ -7,6 +7,9 @@ inputs:
   terraform_directory:
     description: 'Directory that holds Terraform code'
     required: true
+  github_token:
+    description: 'github secret'
+    required: true
 
 runs:
   using: "composite"
