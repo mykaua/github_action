@@ -9,5 +9,5 @@ runs:
   using: "composite"
   steps:
     - name: Setup Terraform
-      run: echo "Hello world"
+      run: echo "Hello world ${{ inputs.hello }}"
       shell: bash
