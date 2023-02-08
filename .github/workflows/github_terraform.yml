@@ -1,0 +1,22 @@
+name: 'Terraform - Backed Dev'
+
+on: [push]
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+             path1:
+              - '.github/workflows/**'
+             path2:
+              - 'Path2/**'
+  call-workflow-test:
+        uses: ./.github/workflows/github_example.yml
+        with:
+          hello: "test"
+
