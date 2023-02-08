@@ -45,6 +45,7 @@ jobs:
     with:
       terraform_directory: "./Backend/dev"
       prefix_version: "be_dev"
+      token: ${{ secrets.GITHUB_TOKEN }}
 
   terraform-backend-qc:
     needs: path-files

@@ -11,6 +11,10 @@ on:
         description: 'Prefix to version'
         required: true
         type: string
+      token:
+        description: 'Github token'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -119,3 +123,4 @@ jobs:
     uses: ./.github/workflows/github_tag.yml
     with:
       environment: ${{ inputs.prefix_version }}
+      github_token: ${{ inputs.token }}
