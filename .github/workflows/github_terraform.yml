@@ -118,4 +118,3 @@ jobs:
     uses: ./.github/workflows/github_tag.yml
     with:
       environment: ${{ inputs.prefix_version }}
-      github_token: ${{ inputs.token }}
