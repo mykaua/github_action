@@ -15,7 +15,8 @@ jobs:
               - '.github/workflows/**'
              path2:
               - 'Path2/**'
-  call-workflow-test:
+                #  call-workflow-test:
+      - name: Hello
         uses: ./.github/workflows/github_example.yml
         with:
           hello: "test"
