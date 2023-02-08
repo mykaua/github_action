@@ -10,3 +10,4 @@ runs:
   steps:
     - name: Setup Terraform
       run: echo "Hello world"
+      shell: bash
