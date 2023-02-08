@@ -11,11 +11,12 @@ inputs:
     description: 'github secret'
     required: true
 
-permissions:
-  contents: read
-  pull-requests: write
-
 runs:
+
+  permissions:
+    contents: read
+    pull-requests: write
+
   using: "composite"
   steps:
     - uses: actions/checkout@v3
