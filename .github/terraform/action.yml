@@ -12,11 +12,6 @@ inputs:
     required: true
 
 runs:
-
-  permissions:
-    contents: read
-    pull-requests: write
-
   using: "composite"
   steps:
     - uses: actions/checkout@v3
