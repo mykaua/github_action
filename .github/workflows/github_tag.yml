@@ -7,10 +7,6 @@ on:
         description: "Environment"
         required: true
         type: string
-      github_token:
-        description: 'Github token'
-        required: true
-        type: string
 
 
 jobs:
@@ -22,7 +18,7 @@ jobs:
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
         with:
-          github_token: ${{ inputs.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 #          tag_prefix: ${{ inputs.environment }}
 
       - name: Output of step

@@ -42,11 +42,9 @@ jobs:
     needs: path-files
     if: needs.path-files.outputs.output_backend_dev == 'true'
     uses: ./.github/workflows/github_terraform.yml
-    uses: actions/checkout@v3
     with:
       terraform_directory: "./Backend/dev"
       prefix_version: "be_dev"
-      token: ${{ secrets.GITHUB_TOKEN }}
 
   terraform-backend-qc:
     needs: path-files
