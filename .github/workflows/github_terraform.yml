@@ -37,5 +37,4 @@ jobs:
               echo "::set-output name=run_job::true"
             fi
           done &lt; files.txt
-
-         cat files.txt
+          cat files.txt
