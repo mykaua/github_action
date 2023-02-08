@@ -1,0 +1,16 @@
+name: Terraform Apply
+
+on: [push]
+
+jobs:
+  terraform_apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: terraform apply
+        uses: ./.github/terraform
+        with:
+          hello: "world mykola"
+          terraform_directory: "./Backend/dev"
+          github_token: ${{ secrets.GH_TOKEN }}
