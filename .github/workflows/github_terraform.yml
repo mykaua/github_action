@@ -21,7 +21,7 @@ permissions:
   pull-requests: write
 
 jobs: 
-  terraform plan-apply:
+  terraform-plan-apply:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
