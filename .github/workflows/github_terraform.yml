@@ -7,9 +7,8 @@ on:
         description: 'Directory that holds Terraform code'
         required: true
         type: string
-  workflow_dispatch:
-    inputs:
-      terraform_directory:
+      prefix_version:
+        description: 'Prefix to version'
         required: true
         type: string
 
@@ -118,4 +117,4 @@ jobs:
     needs: terraform-plan-apply
     uses: ./.github/workflows/github_tag.yml
     with:
-      environment: ${{ inputs.terraform_directory  }}
+      environment: ${{ inputs.prefix_version }}
