@@ -1,0 +1,92 @@
+name: 'Terraform - Backed Dev'
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  path-files:
+    runs-on: ubuntu-latest
+    outputs:
+      output_backend_dev: ${{ steps.filter.outputs.backend_dev }}
+      output_backend_qc: ${{ steps.filter.outputs.backend_qc }}
+      output_backend_prod: ${{ steps.filter.outputs.backend_prod }}
+      output_frontend_dev: ${{ steps.filter.outputs.frontend_dev }}
+      output_frontend_qc: ${{ steps.filter.outputs.frontend_qc }}
+      output_frontend_prod: ${{ steps.filter.outputs.frontend_prod }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            backend_dev:
+              - 'Backend/dev/**'
+            backend_qc:
+              - 'Backend/qc/**'
+            backend_prod:
+              - 'Backend/prod/**'
+            frontend_dev:
+              - 'Frontend/dev/**'
+            frontend_qc:
+              - 'Frontend/qc/**'
+            frontend_prod:
+              - 'Frontend/prod/**'
+
+
+
+  terraform-backend-dev:
+    needs: path-files
+    if: needs.path-files.outputs.output_backend_dev == 'true'
+    uses: ./.github/workflows/github_terraform.yml
+    with:
+      terraform_directory: "./Backend/dev"
+      prefix_version: "be_dev"
+
+  terraform-backend-qc:
+    needs: path-files
+    if: needs.path-files.outputs.output_backend_qc == 'true'
+    uses: ./.github/workflows/github_terraform.yml
+    with:
+      terraform_directory: "./Backend/qc"
+      prefix_version: "be_qc"
+
+  terraform-backend-prod:
+    needs: path-files
+    if: needs.path-files.outputs.output_backend_prod == 'true'
+    uses: ./.github/workflows/github_terraform.yml
+    with:
+      terraform_directory: "./Backend/prod"
+      prefix_version: "be_prod"
+
+  terraform-frontend-dev:
+    needs: path-files
+    if: needs.path-files.outputs.output_frontend_dev == 'true'
+    uses: ./.github/workflows/github_terraform.yml
+    with:
+      terraform_directory: "./Frontend/dev"
+      prefix_version: "fe_dev"
+
+  terraform-frontend-qc:
+    needs: path-files
+    if: needs.path-files.outputs.output_frontend_qc == 'true'
+    uses: ./.github/workflows/github_terraform.yml
+    with:
+      terraform_directory: "./Frontend/qc"
+      prefix_version: "fe_qc"
+
+  terraform-frontend-prod:
+    needs: path-files
+    if: needs.path-files.outputs.output_frontend_prod == 'true'
+    uses: ./.github/workflows/github_terraform.yml
+    with:
+      terraform_directory: "./Frontend/prod"
+      prefix_version: "fe_prod"
+
+#  version:
+#    needs: [path-files, terraform]
+#    uses: ./.github/workflows/github_tag.yml
+
