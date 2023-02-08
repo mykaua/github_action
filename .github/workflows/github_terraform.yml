@@ -15,10 +15,10 @@ jobs:
               - '.github/workflows/**'
              path2:
               - 'Path2/**'
-   call-workflow:
-     uses: .github/workflows/github_example.yml@actions
-     with:
-       hello: "test"
+      - name: hello
+        uses: .github/workflows/github_example.yml@actions
+        with:
+          hello: "test"
           #
 #      - name: dified files
 #        id: check_files
