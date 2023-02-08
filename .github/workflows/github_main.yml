@@ -20,4 +20,5 @@ jobs:
         uses: ./.github/workflows/github_terraform.yml
         with:
           hello: "test"
+          terraform_directory: "./Backend/dev"
 
