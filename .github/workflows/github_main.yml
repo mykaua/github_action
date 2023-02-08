@@ -1,4 +1,4 @@
-name: 'Terraform - Backed Dev'
+github_main.ymlname: 'Terraform - Backed Dev'
 on:
   push:
     branches:
@@ -21,9 +21,12 @@ jobs:
              path2:
               - 'Path2/**'
   terraform:
-        needs: path-files
-        uses: ./.github/workflows/github_terraform.yml
-        with:
-          hello: "test"
-          terraform_directory: "./Backend/dev"
+    needs: path-files
+    uses: ./.github/workflows/github_terraform.yml
+    with:
+      terraform_directory: "./Backend/dev"
+
+  version:
+    needs: [path-files, terraform]
+    uses: ./.github/workflows/github_tag.yml
 

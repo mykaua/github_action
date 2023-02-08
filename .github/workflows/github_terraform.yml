@@ -3,9 +3,6 @@ name: Reusable workflow example hello
 on:
   workflow_call:
     inputs:
-      hello:
-        required: true
-        type: string
       terraform_directory:
         description: 'Directory that holds Terraform code'
         required: true
