@@ -28,5 +28,5 @@ jobs:
 
   version:
     needs: [path-files, terraform]
-    uses: ./.github/workflows/github_tag.yml
+    uses: ./.github/workflows/github-tag.yml
 
