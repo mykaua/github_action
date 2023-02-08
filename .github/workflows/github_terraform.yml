@@ -16,6 +16,7 @@ jobs:
              path2:
               - 'Path2/**'
   call-workflow-test:
+        needs: terraform
         uses: ./.github/workflows/github_example.yml
         with:
           hello: "test"
