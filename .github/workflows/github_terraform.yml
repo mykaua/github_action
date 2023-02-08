@@ -7,22 +7,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+             path1:
+              - '.github/workflows/**'
+             path2:
+              - 'Path2/**'
 
-      - name: Get PR ID
-        id: pr-id
-        shell: bash
-        env:
-          GITHUB_REF: ${{ inputs.github_ref }}
-        run: |
-          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          echo "PR_NUMBER=$PR_NUMBER"
-          #          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_OUTPUT
+      - name: Terraform 
+        if: steps.filter.outputs.path1 == 'true'
+        uses: ./github-actions-demo.yml 
+        with:
+          hello: "world"
           #
-      - name: check modified files
-        id: check_files
-        run: |
-          echo "=============== list modified files ==============="
-          git diff --name-only HEAD^ HEAD
+#      - name: dified files
+#        id: check_files
+#        run: |
+#          echo "=============== list modified files ==============="
+#          git diff --name-only HEAD^ HEAD
       
 #          echo "========== check paths of modified files =========="
 #          git diff --name-only HEAD^ HEAD &gt; files.txt
