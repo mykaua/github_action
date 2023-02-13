@@ -12,10 +12,11 @@ on:
         required: true
         type: string
       aws_access_key:
-        description: "aws access key"
+        description: 'aws access key'
         required: true
         type: string
-      aws_secret_key: "aws secret key"
+      aws_secret_key:
+        required: true
         description: "aws secrete key"
         type: string
 
