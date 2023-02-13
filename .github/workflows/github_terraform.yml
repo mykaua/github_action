@@ -11,6 +11,11 @@ on:
         description: 'Prefix to version'
         required: true
         type: string
+    secrets:
+      aws_access_key:
+        required: true
+      aws_secret_key:
+        required: true
 #      aws_access_key:
 #        description: 'aws access key'
 #        required: true
@@ -36,8 +41,8 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-region: eu-central-1
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }} 
+        aws-access-key-id: ${{ secrets.aws_access_key }}
+        aws-secret-access-key: ${{ secrets.aws_secret_key }} 
           
     - name: Terraform fmt
       id: fmt
