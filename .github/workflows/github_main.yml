@@ -45,7 +45,7 @@ jobs:
     with:
       terraform_directory: "./Backend/dev"
       prefix_version: "be_dev"
-      aws_access_key: ${{ secrets.AWS_ACCESS_KEY}}$
+      aws_access_key: ${{ secrets.AWS_ACCESS_KEY}}
       aws_secret_key: ${{secrets.AWS_SECRET_KEY}}
 
   terraform-backend-qc:
@@ -55,7 +55,7 @@ jobs:
     with:
       terraform_directory: "./Backend/qc"
       prefix_version: "be_qc"
-      aws_access_key: ${{ secrets.AWS_ACCESS_KEY}}$
+      aws_access_key: ${{ secrets.AWS_ACCESS_KEY}}
       aws_secret_key: ${{secrets.AWS_SECRET_KEY}}
 
 
