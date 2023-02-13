@@ -61,37 +61,37 @@ jobs:
       aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
 
 
-  terraform-backend-prod:
-    needs: path-files
-    if: needs.path-files.outputs.output_backend_prod == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Backend/prod"
-      prefix_version: "be_prod"
+#  terraform-backend-prod:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_backend_prod == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Backend/prod"
+#      prefix_version: "be_prod"
 
-  terraform-frontend-dev:
-    needs: path-files
-    if: needs.path-files.outputs.output_frontend_dev == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Frontend/dev"
-      prefix_version: "fe_dev"
+#  terraform-frontend-dev:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_frontend_dev == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Frontend/dev"
+#      prefix_version: "fe_dev"
 
-  terraform-frontend-qc:
-    needs: path-files
-    if: needs.path-files.outputs.output_frontend_qc == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Frontend/qc"
-      prefix_version: "fe_qc"
+#  terraform-frontend-qc:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_frontend_qc == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Frontend/qc"
+#      prefix_version: "fe_qc"
 
-  terraform-frontend-prod:
-    needs: path-files
-    if: needs.path-files.outputs.output_frontend_prod == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Frontend/prod"
-      prefix_version: "fe_prod"
+#  terraform-frontend-prod:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_frontend_prod == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Frontend/prod"
+#      prefix_version: "fe_prod"
 
 #  version:
 #    needs: [path-files, terraform]
