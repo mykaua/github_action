@@ -45,6 +45,9 @@ jobs:
     with:
       terraform_directory: "./Backend/dev"
       prefix_version: "be_dev"
+    secrets:    
+      aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+      aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
 
   terraform-backend-qc:
     needs: path-files
@@ -53,38 +56,42 @@ jobs:
     with:
       terraform_directory: "./Backend/qc"
       prefix_version: "be_qc"
+    secrets:
+      aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+      aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
 
-  terraform-backend-prod:
-    needs: path-files
-    if: needs.path-files.outputs.output_backend_prod == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Backend/prod"
-      prefix_version: "be_prod"
 
-  terraform-frontend-dev:
-    needs: path-files
-    if: needs.path-files.outputs.output_frontend_dev == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Frontend/dev"
-      prefix_version: "fe_dev"
+#  terraform-backend-prod:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_backend_prod == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Backend/prod"
+#      prefix_version: "be_prod"
 
-  terraform-frontend-qc:
-    needs: path-files
-    if: needs.path-files.outputs.output_frontend_qc == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Frontend/qc"
-      prefix_version: "fe_qc"
+#  terraform-frontend-dev:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_frontend_dev == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Frontend/dev"
+#      prefix_version: "fe_dev"
 
-  terraform-frontend-prod:
-    needs: path-files
-    if: needs.path-files.outputs.output_frontend_prod == 'true'
-    uses: ./.github/workflows/github_terraform.yml
-    with:
-      terraform_directory: "./Frontend/prod"
-      prefix_version: "fe_prod"
+#  terraform-frontend-qc:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_frontend_qc == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Frontend/qc"
+#      prefix_version: "fe_qc"
+
+#  terraform-frontend-prod:
+#    needs: path-files
+#    if: needs.path-files.outputs.output_frontend_prod == 'true'
+#    uses: ./.github/workflows/github_terraform.yml
+#    with:
+#      terraform_directory: "./Frontend/prod"
+#      prefix_version: "fe_prod"
 
 #  version:
 #    needs: [path-files, terraform]
