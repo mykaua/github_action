@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.1](https://github.com/mykaua/github_action/compare/v1.0.0...v1.0.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* manifest ([84f5d0c](https://github.com/mykaua/github_action/commit/84f5d0cfb736c5a9888d1105108a6d46da22bb1e))
+* path to file ([ea0651b](https://github.com/mykaua/github_action/commit/ea0651b19f99e23a744578c2aad3b0239530d57f))
+* updated code ([ef89e1f](https://github.com/mykaua/github_action/commit/ef89e1fd591c1992c73b3fc4fe7779d2b6f39d7f))
+
 ## 1.0.0 (2023-08-02)
 
 
